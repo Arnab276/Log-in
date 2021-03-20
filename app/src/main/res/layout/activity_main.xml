@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/fine"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -23,6 +24,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:gravity="center"
+        android:textStyle="bold"
+        android:padding="4dp"
+        android:textColor="#FFFF00"
+        android:textSize="18dp"
         android:text="TextView" />
 
     <com.facebook.login.widget.LoginButton

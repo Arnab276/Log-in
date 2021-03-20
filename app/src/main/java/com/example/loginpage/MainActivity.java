@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
                 if (currentAccessToken == null){
                     mFirebaseAuth.signOut();
+                    signInButton.setVisibility(View.VISIBLE);
                 }
             }
         };
