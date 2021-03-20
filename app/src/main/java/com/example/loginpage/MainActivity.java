@@ -48,7 +48,7 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
-    private SignInButton signInButton;
+    private Button signInButton;
      private GoogleSignInClient mGoogleSignInClient;
      private String TAG = "MainActivity";
      private FirebaseAuth mAuth;
@@ -133,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
                 mGoogleSignInClient.signOut();
                 Toast.makeText(MainActivity.this,"You are Logged out",Toast.LENGTH_SHORT).show();
                 btnSignOut.setVisibility(View.INVISIBLE);
+                loginButton.setVisibility(View.VISIBLE);
+                signInButton.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -173,6 +175,9 @@ public class MainActivity extends AppCompatActivity {
                    Toast.makeText(MainActivity.this, "Successfull", Toast.LENGTH_SHORT).show();
                    FirebaseUser user = mAuth.getCurrentUser();
                    updateUI(user);
+                   btnSignOut.setVisibility(View.VISIBLE);
+                   loginButton.setVisibility(View.INVISIBLE);
+                   signInButton.setVisibility(View.INVISIBLE);
                } else {
                    Toast.makeText(MainActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                    updateUI(null);
@@ -216,6 +221,8 @@ public class MainActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Log.d(TAG1,"sign in with credential: successful");
                     FirebaseUser user = mFirebaseAuth.getCurrentUser();
+
+                    signInButton.setVisibility(View.INVISIBLE);
                     updateUI1(user);
                 }
                 else {
